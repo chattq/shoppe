@@ -78,7 +78,6 @@ export default function Profile() {
   const previewImage = useMemo(() => {
     return file ? URL.createObjectURL(file) : ''
   }, [file])
-  console.log(file)
   const { data: profileData, refetch } = useQuery({
     queryKey: ['profile'],
     queryFn: userApi.getProfile
@@ -107,7 +106,7 @@ export default function Profile() {
   } = methods
 
   const avatar = watch('avatar')
-  console.log(avatar)
+  // const data = watch()
 
   useEffect(() => {
     if (profile) {
@@ -125,8 +124,8 @@ export default function Profile() {
       if (file) {
         const form = new FormData()
         form.append('image', file)
+        console.log(127, form)
         const uploadRes = await uploadAvatarMutaion.mutateAsync(form)
-        console.log(uploadRes)
         avatarName = uploadRes.data.data
         setValue('avatar', avatarName)
       }

@@ -90,7 +90,7 @@ export default function Pagination({ queryConfig, pageSize }: Props) {
               'border-cyan-500': pageNumber === page,
               'border-transparent': pageNumber !== page
             })}
-          >
+          >invalidateQueries
             {pageNumber}
           </Link>
         )
